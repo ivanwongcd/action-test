@@ -1,0 +1,20 @@
+name: Run Commands
+
+on:
+  workflow_run:
+    workflows:
+      - "Context testing"
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy-demo-site:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: test
+        run: |
+          whoami
+          pwd
+          ls -l
