@@ -4,7 +4,8 @@ on:
   workflow_run:
     workflows:
       - "Context testing"
-    types: [requested]
+    types:
+      - completed
     branches:
       - main
       - develop
